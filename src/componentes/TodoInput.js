@@ -1,27 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 const TodoInput = ({ newTarea, addTarea, setNewTarea }) => {
-
   const handleSubmit = (e) => {
     e.preventDefault();
     addTarea();
-
-    const inputDOM = document.getElementById('texto');
-    inputDOM.value = '';
     setNewTarea('');
-  }
+  };
+
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="texto">Ingrese Tarea:</label>
       <input
-        type='text'
-        onChange={(e) => setNewTarea(e.target.value)}
-        newTarea={newTarea}
+        type="text"
         id="texto"
-        placeholder='Ingrese Tarea' />
-
-      <button type='submit'>Agregar Tarea</button>
+        value={newTarea}
+        onChange={(e) => setNewTarea(e.target.value)}
+        placeholder="Ingrese Tarea"
+        required
+      />
+      <button type="submit">Agregar Tarea</button>
     </form>
-  )
-}
+  );
+};
 
-export default TodoInput
+export default TodoInput;
